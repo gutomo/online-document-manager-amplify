@@ -2,6 +2,7 @@ import {useState} from "react";
 import AppBar from "../../components/AppBar/AppBar";
 import FilesAppLayout from "../../components/FilesAppLayout/FilesAppLayout";
 import "@cloudscape-design/global-styles/index.css"
+import './Main.css';
 
 import {defaultBreadcrumbs} from "../../components/breadcrumbs-items";
 import TableListFiles from "../../components/TableListFiles/TableListFiles";

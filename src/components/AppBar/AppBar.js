@@ -1,15 +1,20 @@
 import * as React from "react";
 import TopNavigation from "@cloudscape-design/components/top-navigation";
 
-import { Auth } from 'aws-amplify';
-import {useEffect, useState} from "react";
+//import { Auth } from 'aws-amplify';
+import { useAuthenticator } from '@aws-amplify/ui-react';
+//import {useEffect, useState} from "react";
 
 export default () => {
 
-    const [username, setUsername] = useState("");
-
+    //const [username, setUsername] = useState("");
+    const { user, signOut } = useAuthenticator((context) => [
+        context.user,
+        context.signOut
+      ]);
+    /*
     useEffect(() => {
-
+       
         const load = async () => {
             Auth.currentUserInfo().then(
                 (result) => {
@@ -20,7 +25,7 @@ export default () => {
 
         load();
     }, []);
-
+    */
 
     return (
         <TopNavigation
@@ -30,12 +35,25 @@ export default () => {
             }}
             utilities={[
                 {
+                    type: "button",
+                    text: "Link",
+                    href: "https://aws.amazon.com",
+                    external: true,
+                    externalIconAriaLabel: " (opens in a new tab)"
+                },
+                {
+                    type: "button",
+                    text: "Sign out",
+                    iconName: "arrow-left",
+                    onClick: () => signOut()
+                },                
+                {
                     type: "menu-dropdown",
-                    text: username,
+                    text: user.attributes.email,
                     iconName: "user-profile",
                     items: [
                         {id: "profile", text: "Profile"},
-                        { id: "signout", text: "Sign out" },
+                        {id: "signout", text: "Sign out"},
                     ]
                 }
             ]}
