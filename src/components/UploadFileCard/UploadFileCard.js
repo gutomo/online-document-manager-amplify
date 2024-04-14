@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "@cloudscape-design/global-styles/index.css";
 import {
   Button,
   Container,
   ExpandableSection,
-  Flashbar,
   Form,
   FormField,
   Grid,
@@ -29,11 +28,11 @@ Amplify.addPluggable(new AmazonAIPredictionsProvider());
 function UploadFileCard(props) {
   const [filename, setFilename] = useState();
   const [progress, setProgress] = useState();
-  const [uploaded, setUploaded] = useState(false);
+  const [, setUploaded] = useState(false);
 
   const [identify, setIdentify] = useState();
   const [interpret, setInterpret] = useState();
-  const [identifyErr, setIdentifyErr] = useState(null);
+  const [, setIdentifyErr] = useState(null);
   const [keyValueTokenGroup, setKeyValueTokenGroup] = useState();
   const [firstLinesTokenGroup, setFirstLinesTokenGroup] = useState();
 
@@ -43,7 +42,7 @@ function UploadFileCard(props) {
     setFilename(file.name);
 
     try {
-      var response = await Storage.put(file.name, file, {
+        await Storage.put(file.name, file, {
         progressCallback(progress) {
           setProgress((progress.loaded * 100) / progress.total);
         },
@@ -56,7 +55,7 @@ function UploadFileCard(props) {
     }
 
     var responseIdentify = await onIdentify(file);
-    var responseInterpret = await onInterpret(responseIdentify.text.fullText);
+    await onInterpret(responseIdentify.text.fullText);
   }
 
   async function onIdentify(file) {
@@ -216,7 +215,7 @@ function UploadFileCard(props) {
                   <Input
                     disabled
                     value={
-                      identify == undefined
+                      identify === undefined
                         ? ""
                         : identify.text.keyValues.length
                     }
@@ -226,7 +225,7 @@ function UploadFileCard(props) {
                   <Input
                     disabled
                     value={
-                      identify == undefined ? "" : identify.text.lines.length
+                      identify === undefined ? "" : identify.text.lines.length
                     }
                   />
                 </FormField>
@@ -234,8 +233,8 @@ function UploadFileCard(props) {
                   <Input
                     disabled
                     value={
-                      identify == undefined ||
-                      identify.text.selections == undefined
+                      identify === undefined ||
+                      identify.text.selections === undefined
                         ? ""
                         : identify.text.selections.length
                     }
@@ -245,7 +244,7 @@ function UploadFileCard(props) {
                   <Input
                     disabled
                     value={
-                      identify == undefined || identify.text.tables == undefined
+                      identify === undefined || identify.text.tables === undefined
                         ? ""
                         : identify.text.tables.length
                     }
@@ -255,7 +254,7 @@ function UploadFileCard(props) {
                   <Input
                     disabled
                     value={
-                      identify == undefined ? "" : identify.text.words.length
+                      identify === undefined ? "" : identify.text.words.length
                     }
                   />
                 </FormField>

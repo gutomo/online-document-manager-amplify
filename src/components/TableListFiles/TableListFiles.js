@@ -83,13 +83,13 @@ function TableListFiles(props) {
             <SpaceBetween size="xs" direction="horizontal">
               <Button onClick={() => load()}>Refresh</Button>
               <Button
-                disabled={selectedItems.length == 0}
+                disabled={selectedItems.length === 0}
                 onClick={() => downloadFile(selectedItems[0].key)}
               >
                 Download
               </Button>
               <Button
-                disabled={selectedItems.length == 0}
+                disabled={selectedItems.length === 0}
                 onClick={() => deleteFile(selectedItems[0].key)}
               >
                 Delete

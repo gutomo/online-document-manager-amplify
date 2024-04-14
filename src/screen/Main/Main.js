@@ -1,4 +1,3 @@
-import {useState} from "react";
 import AppBar from "../../components/AppBar/AppBar";
 import FilesAppLayout from "../../components/FilesAppLayout/FilesAppLayout";
 import "@cloudscape-design/global-styles/index.css"
@@ -16,7 +15,7 @@ export default function Main(props) {
             <AppBar/>
             <FilesAppLayout
                 breadcrumbs={defaultBreadcrumbs}
-                title={props.level == 'private' ? "My private files" : "All public files"}
+                title={props.level === 'private' ? "My private files" : "All public files"}
             >
                 <SpaceBetween size="l">
                     <UploadFileCard level={props.level}/>

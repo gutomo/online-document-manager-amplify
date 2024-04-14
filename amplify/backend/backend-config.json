@@ -1,7 +1,7 @@
 {
   "api": {},
   "auth": {
-    "slgfiles71a417f4": {
+    "onlinedocman71a417f4": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -68,7 +68,7 @@
     }
   },
   "storage": {
-    "slgfiles": {
+    "onlinedocman": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"

@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "auth": {
-    "slgfiles71a417f4": {
+    "onlinedocman71a417f4": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",
@@ -21,7 +21,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
-    "slgfiles": {
+    "onlinedocman": {
       "BucketName": "string",
       "Region": "string"
     }

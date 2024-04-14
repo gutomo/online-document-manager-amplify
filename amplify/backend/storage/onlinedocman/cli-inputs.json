@@ -1,7 +1,7 @@
 {
-  "resourceName": "slgfiles",
+  "resourceName": "onlinedocman",
   "policyUUID": "45b50b70",
-  "bucketName": "slgfiles-content-s3",
+  "bucketName": "onlinedocman-content-s3",
   "storageAccess": "auth",
   "guestAccess": [],
   "authAccess": [

@@ -3,7 +3,7 @@ import TopNavigation from "@cloudscape-design/components/top-navigation";
 
 import { useAuthenticator } from "@aws-amplify/ui-react";
 
-export default () => {
+const AppBar = () => {
   const { user, signOut } = useAuthenticator((context) => [
     context.user,
     context.signOut,
@@ -72,3 +72,5 @@ export default () => {
     />
   );
 };
+
+export default AppBar;
