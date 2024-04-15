@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useCallback, useState } from "react";
 
 import "@cloudscape-design/global-styles/index.css";
 import {
@@ -33,17 +33,17 @@ function TableListFiles(props) {
   const [items, setItems] = useState();
   const [selectedItems, setSelectedItems] = useState([]);
 
-  const load = async () => {
+  const load = useCallback(async () => {
     Storage.list("", { level: props.level })
       .then((result) => {
         setItems(result.results);
       })
       .catch((err) => console.log(err));
-  };
+  }, [props.level])
 
   useEffect(() => {
     load();
-  }, []);
+  }, [load]);
 
   function downloadFile(filename) {
     Storage.get(filename, {
